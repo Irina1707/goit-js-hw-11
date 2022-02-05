@@ -48,28 +48,28 @@ img {
   margin-bottom: 30px;
 }
 
-.photo-card {
+.photo-link {
   height: 350px;
   overflow: hidden;
+  text-decoration: none;
+  color: #2a2a2a;
+  margin-bottom: 10px;
 }
 
-.photo-card:not(:last-child) {
+.photo-link:not(:last-child) {
   margin-right: 10px;
 }
-.photo-card img {
+img {
   display: block;
 
   height: 200px;
   object-fit: cover;
 }
 
-.photo-link {
-  text-decoration: none;
-  color: #2a2a2a;
-}
 .info {
   display: flex;
   justify-content: space-around;
+  box-shadow: 2px black;
 }
 .info-item:not(:last-child) {
   margin-right: 10px;

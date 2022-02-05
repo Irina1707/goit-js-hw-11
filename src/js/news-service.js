@@ -1,4 +1,3 @@
-import Notiflix from 'notiflix';
 //const axios = require('axios');
 import axios from "axios";
 const BASE_URL = 'https://pixabay.com/api/';

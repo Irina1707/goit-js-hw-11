@@ -97,6 +97,6 @@ function clearPhotos() {
     refs.gallery.innerHTML = '';
 }
 
-var lightbox = new SimpleLightbox('.gallery .photo-card a', {
+var lightbox = new SimpleLightbox('.gallery a', {
     captionType: "attr", captionsData: "alt", captionPosition: "bottom", captionDelay: 250
 });
