@@ -11,6 +11,7 @@ import LoadMoreBtn from './js/load-more-btn';
 const BASE_URL = 'https://pixabay.com/api/';
 const API_KEY = '25444369-ba6b8c690cc86ce1f63d356ab';
 
+let gallery = new SimpleLightbox('.gallery a');
 
 const loadMoreBtn = new LoadMoreBtn({
     selector: '.load-more',
@@ -58,6 +59,9 @@ function onSeachPhoto(event) {
 
 async function fetchImages() {
     loadMoreBtn.disabled();
+    
+    
+
     if (newsApiServise.query === '') {
         return;
     }
@@ -90,13 +94,12 @@ async function fetchImages() {
 
 function renderPhotoMarkup(hits) {
     refs.gallery.insertAdjacentHTML("beforeend", photoSearchTpl(hits));
-    
+    let lightbox = new SimpleLightbox('.gallery a');
+    lightbox.refresh();
 }
 
 function clearPhotos() {
     refs.gallery.innerHTML = '';
 }
 
-var lightbox = new SimpleLightbox('.gallery a', {
-    captionType: "attr", captionsData: "alt", captionPosition: "bottom", captionDelay: 250
-});
+
