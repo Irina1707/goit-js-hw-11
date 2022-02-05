@@ -1,4 +1,4 @@
-
+import Notiflix from 'notiflix';
 //const axios = require('axios');
 import axios from "axios";
 const BASE_URL = 'https://pixabay.com/api/';
@@ -10,18 +10,17 @@ export default class NewsApiService {
         this.page = 1
 }
 
-    fetchPhotos() {
+async fetchPhotos() {
         console.log(this);
-    const url = `${BASE_URL}?key=${API_KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=40`;
-        return axios.get(url)
-            .then(({ data }) => {
-                console.log(data);
-                this.incrementPage();
-
-                return data.hits, data.totalHits ;
-            
-        })
-    }
+        const url = `${BASE_URL}?key=${API_KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=40`;
+        const response = await axios.get(url)
+            //.then(({ data }) => {
+            //    console.log(data);
+            //    this.incrementPage();
+            //    return data; 
+            //})
+    return response;
+            }
     get query() {
         return this.searchQuery;
     }
