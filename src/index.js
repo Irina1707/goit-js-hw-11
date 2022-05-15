@@ -31,7 +31,7 @@ let page = 1;
 
 function onSeachPhoto(event) {
     event.preventDefault();
-
+ 
     const form = event.currentTarget;
     newsApiServise.query = form.elements.searchQuery.value;
  
@@ -39,12 +39,7 @@ function onSeachPhoto(event) {
     newsApiServise.resetPage();
     clearPhotos();
     fetchImages();
-//onFetchError(data.hits)})
-  //.then(function () {
-    // always executed
-  //});
 }
-
 
 //function onLoadPhoto(event) {
 //    if (newsApiServise.query === '') {
@@ -60,8 +55,6 @@ function onSeachPhoto(event) {
 async function fetchImages() {
     loadMoreBtn.disabled();
     
-    
-
     if (newsApiServise.query === '') {
         return;
     }
@@ -69,8 +62,8 @@ async function fetchImages() {
         const photos = await newsApiServise.fetchPhotos()
         .then(({ data }) => {
         console.log(data)
-        newsApiServise.incrementPage();
-        
+            newsApiServise.incrementPage();
+            
         if (data.hits.length !== 0) {  
             renderPhotoMarkup(data.hits);
             loadMoreBtn.enable();
